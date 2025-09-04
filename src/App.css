@@ -176,3 +176,11 @@ input[placeholder="Write a new note..."]:focus {
     justify-content: flex-end;
   }
 }
+
+.created-by {
+  text-align: center;       /* center horizontally */
+  font-size: 0.8rem;        /* small text */
+  margin: 10px 0;           /* space above and below */
+  padding: 5px;             /* optional padding */
+  color: #555;              /* optional text color */
+}

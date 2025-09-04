@@ -124,8 +124,11 @@ const saveEdit = async () => {
   if (loading) return <p>Loading notes...</p>;
 
   return (
+    
     <div className="container">
+      <p className="created-by">Created By Piyush · GitHub: javaBYpiyush</p>
       <h1>Notes App</h1>
+      
 
       {/* Add note */}
       <div className="add-note">
