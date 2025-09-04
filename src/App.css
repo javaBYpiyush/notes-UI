@@ -1,0 +1,178 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f9f9f9;
+  margin: 0;
+  padding: 0;
+}
+
+/* Container */
+.container {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+/* Add note section */
+.add-note {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.add-note input {
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+/* Title input */
+input[placeholder="Title"] {
+  background: #ffffff;
+  color: #16161d;
+  border: 2px solid #007bff;
+  border-radius: 6px;
+  padding: 0.6rem;
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+  font-size: 1rem;
+  width: 100%;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+
+input[placeholder="Title"]:focus {
+  outline: none;
+  border-color: #0056b3;
+  box-shadow: 0 0 6px rgba(0, 91, 187, 0.5);
+}
+
+/* Content input */
+input[placeholder="Write a new note..."] {
+  background: #fafafa;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 0.6rem;
+  margin-bottom: 1rem;
+  width: 100%;
+  font-size: 0.95rem;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+
+input[placeholder="Write a new note..."]:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 6px rgba(0, 91, 187, 0.5);
+}
+
+.add-note button {
+  padding: 0.6rem 1rem;
+  border: none;
+  background: #007bff;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.add-note button:hover,
+.add-note button:focus {
+  background: #0056b3;
+}
+
+/* Notes list */
+/* List container can stay as-is */
+.notes-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 16px;
+}
+
+/* Each note becomes a 2-column card */
+.notes-list li.note {
+  background: #f1f1f1;
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  gap: 16px;
+  align-items: stretch;   /* actions column matches height */
+  border: 1px solid #e5e7eb;
+}
+
+/* Left column: title + body stacked */
+.note-main {
+  flex: 1;
+  min-width: 0;           /* critical for wrapping in flex layouts */
+  display: grid;
+  gap: 8px;
+}
+
+/* Title “box” */
+.note-title {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  padding: 8px 10px;
+  font-weight: 700;
+  color: #111827;
+  word-break: break-word;
+  overflow-wrap: anywhere; /* long titles won’t overflow */
+}
+
+/* Note text “box” (wrap + scroll if very long) */
+.note-body {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  padding: 10px;
+  color: #374151;
+  white-space: pre-wrap;     /* keep line breaks, wrap lines */
+  overflow-wrap: anywhere;   /* break long words/URLs */
+  word-break: break-word;
+  max-height: 140px;         /* keep card tidy */
+  overflow: auto;            /* scroll inside if too long */
+}
+
+/* Reuse for textarea while editing */
+.note-input {
+  resize: vertical;
+  max-height: 240px;
+}
+
+/* Right column: buttons fixed in place */
+.note-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-end;
+  flex-shrink: 0;          /* do not shrink buttons */
+}
+
+/* Keep your existing button/link styles, or ensure minimum size */
+.note-actions button,
+.note-actions a {
+  min-width: 84px;
+  text-align: center;
+}
+
+/* Mobile: stack actions below text */
+@media (max-width: 600px) {
+  .notes-list li.note {
+    flex-direction: column;
+  }
+  .note-actions {
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+}
